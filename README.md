@@ -1,5 +1,12 @@
 # onFact installer bootstrap
 
+Latest v0.3.0 is **Linux x86_64 GNU only** (glibc 2.39+). There is no v0.3.0
+Mac artifact. Apple Silicon users should pin the previous verified native build:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/rghrb/onfact-install/main/install.sh | sh -s -- --version v0.2.0
+```
+
 This small public repository provides a convenient way to fetch the onFact
 command-line installer. The installer downloads the latest stable `onfact`
 binary from a private GitHub release and verifies its SHA-256 checksum before
@@ -15,7 +22,7 @@ The default destination is `$HOME/.local/bin`. Select a release version or a
 different destination with:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/rghrb/onfact-install/main/install.sh | sh -s -- --version v0.1.0 --bin-dir "$HOME/bin"
+curl -fsSL https://raw.githubusercontent.com/rghrb/onfact-install/main/install.sh | sh -s -- --version v0.3.0 --bin-dir "$HOME/bin"
 ```
 
 Pass `--help` for the available options. Rerun the command to upgrade.
@@ -35,7 +42,8 @@ configured after installation. Existing saved onFact credentials are preserved
 and reused by CLI commands. On first use without saved credentials, run
 `onfact auth login`.
 
-The current release supports Linux x86_64 with GNU libc (glibc) 2.39 or newer
-(Ubuntu 24.04 or newer), and Apple Silicon (`arm64`) on macOS 15 or newer.
-Other operating systems, architectures, and Linux libc variants are not
-supported by the current release artifacts.
+The latest v0.3.0 artifacts support Linux x86_64 with GNU libc (glibc) 2.39
+or newer (Ubuntu 24.04 or newer). The previous native v0.2.0 release supports
+Apple Silicon (`arm64`) on macOS 15 or newer; Mac users must explicitly pin
+that version as shown above. Other operating systems, architectures, and
+Linux libc variants are not supported by these release artifacts.
